@@ -6,14 +6,21 @@ const port = 3000;
 
 const db = require('./config/mongoose-connection')
 
+
+//using the required middlewares for parsing
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieparser())
 app.use(express.static(path.join(__dirname,"public")))
 
+
+//setting the view engine
+
 app.set("view engine","ejs")
 
 //routes
+
 const ownerRouter =require('./routes/ownerRouter')
 const usersRouter =require('./routes/usersRouter')
 const productsRouter =require('./routes/productsRouter')
