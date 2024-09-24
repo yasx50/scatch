@@ -3,9 +3,16 @@ const app = express();
 const path = require('path');
 const cookieparser = require('cookie-parser');
 const port = 3000;
+require('dotenv').config() 
+
+
+//connecting to database
 
 const db = require('./config/mongoose-connection')
 
+//setting the view engine
+
+app.set("view engine","ejs")
 
 //using the required middlewares for parsing
 
@@ -13,11 +20,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieparser())
 app.use(express.static(path.join(__dirname,"public")))
-
-
-//setting the view engine
-
-app.set("view engine","ejs")
 
 //routes
 
@@ -28,6 +30,10 @@ app.use('/owners',ownerRouter)
 app.use('/users',usersRouter)
 app.use('/products',productsRouter)
 
+
+
+
+//handling the request main_program
 
 app.get('/',(req,res)=>{
     res.send('scatch')
