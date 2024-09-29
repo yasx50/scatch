@@ -26,7 +26,7 @@ module.exports.registerUser = async(req, res) => {
             });
             let token = generateToken(user)
             res.cookie("token", token);
-            res.send("user created successfully");
+            res.redirect('/shop')
           }
         });
       });
@@ -42,13 +42,18 @@ module.exports.loginUser = async (req,res)=>{
 
   bcrypt.compare(password,user.password,(err,result)=>{
     if(result){
-      let tken = generateToken(user)
+      let token = generateToken(user)
       res.cookie("token" ,token)
-      res.send('you have logged in')
+      res.redirect('/shop')
     }
     else{
       res.send('password is incorrect')
     }
   })
 
+}
+
+module.exports.logoutUser = ()=>{
+  res.cookie('token','')
+  res.redirect('/')
 }

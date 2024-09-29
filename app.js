@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cookieparser = require('cookie-parser');
-const port = 3000;
+const expressSession = require('express-session')
+const flash = require('connect-flash')
 require('dotenv').config() 
+const port = 3000;
 
 
 //connecting to database
@@ -21,11 +23,24 @@ app.use(express.urlencoded({extended:true}))
 app.use(cookieparser())
 app.use(express.static(path.join(__dirname,"public")))
 
+// flash and sessions
+
+app.use(
+    expressSession({
+        resave:false,
+        saveUninitialized:false,
+        secret:process.env.EXPRESS_SESSION_SECRET
+    })
+)
+app.use(flash())
+
 //routes
 
 const ownerRouter =require('./routes/ownerRouter')
 const usersRouter =require('./routes/usersRouter')
 const productsRouter =require('./routes/productsRouter')
+const indexRouter =require('./routes/index')
+app.use('/',indexRouter)
 app.use('/owners',ownerRouter)
 app.use('/users',usersRouter)
 app.use('/products',productsRouter)
