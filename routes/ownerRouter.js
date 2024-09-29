@@ -27,8 +27,7 @@ if (process.env.NODE_ENV == "development") {
 
 
 router.get("/admin", (req, res) => {
-  console.log("this is owners routers");
-  res.send('this is admin panel')
+  res.render('admin')
 });
 
 
