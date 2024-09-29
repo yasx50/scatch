@@ -50,9 +50,9 @@ app.use('/products',productsRouter)
 
 //handling the request main_program
 
-app.get('/',(req,res)=>{
-    res.send('scatch')
-})
+// app.get('/',(req,res)=>{
+//     res.send('scatch')
+// })
 
 
 app.listen(port,()=>{
