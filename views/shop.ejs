@@ -7,6 +7,17 @@
   <link href="/css/tailwind.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+  <% if (messages.success) { %>
+    <div class="alert alert-success bg-green-500">
+      <%= messages.success %>
+    </div>
+  <% } %>
+  <% if (messages.error) { %>
+    <div class="alert alert-danger bg-rose-500">
+      <%= messages.error %>
+    </div>
+  <% } %>
+  
 
   <!-- Product Listing Section -->
   <div class="container mx-auto mt-10">

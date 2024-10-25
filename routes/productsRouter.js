@@ -1,8 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const upload = require('../config/multer-congig'); 
 
-router.get('/',(req,res)=>{
-    console.log('this is products routers');
+
+router.post('/create',upload.single('image'),(req,res)=>{
+    
+    res.send(req.file)
     
 
 })

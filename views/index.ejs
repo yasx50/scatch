@@ -7,6 +7,17 @@
   <link href="/css/tailwind.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
+  <% if (messages.success) { %>
+    <div class="alert alert-success bg-green-500">
+      <%= messages.success %>
+    </div>
+  <% } %>
+  <% if (messages.error) { %>
+    <div class="alert alert-danger bg-rose-500">
+      <%= messages.error %>
+    </div>
+  <% } %>
+  
 
   <div class="min-h-screen flex items-center justify-center">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
@@ -63,6 +74,7 @@
       </div>
     </div>
   </div>
+
 
 </body>
 </html>
