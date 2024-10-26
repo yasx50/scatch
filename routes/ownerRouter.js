@@ -26,6 +26,11 @@ console.log(process.env.NODE_ENV);
 //   });
 // }
 
+
+
+
+
+
 router.get("/admin", (req, res) => {
   res.render('createproduct');
 });
