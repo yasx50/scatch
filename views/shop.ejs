@@ -31,11 +31,11 @@
       
      <% products.forEach(product => { %>
 
-      <div class="bg-[<%= product.panelcolor %>] shadow-lg rounded-lg overflow-hidden">
+      <div style="background-color: <%= product.bgcolor %>" class=" shadow-lg rounded-lg overflow-hidden">
         <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="Product 6" class="w-full h-48  object-fill">
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-[<%= product.textcolor %>]"><%= product.name %></h3>
-          <p class="text-gray-600 mt-2">₹<%= product.price %></p>
+          <h3 style=" background-color: <%= product.textcolor %>" class="text-xl font-semibold "><%= product.name %></h3>
+          <p  class="text-gray-600 mt-2">₹<%= product.price %></p>
           <a href="/shop" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">add</a>
         </div>
       </div>
