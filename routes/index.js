@@ -9,6 +9,10 @@ router.get('/',(req,res)=>{
     res.render('index',{error})
 })
 
+router.get('/login',(req,res)=>{
+    res.render('login')
+})
+
 router.get('/shop',isLogedin,async(req,res)=>{
     let products = await productModel.find()
     res.render('shop',{products})
