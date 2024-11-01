@@ -10,7 +10,7 @@ const port = 3000;
 
 //connecting to database
 
-const db = require('./config/mongoose-connection')
+const db = require('../config/mongoose-connection')
 
 //setting the view engine
 
@@ -41,10 +41,10 @@ app.use((req, res, next) => {
 
 //routes
 
-const ownerRouter =require('./routes/ownerRouter')
-const usersRouter =require('./routes/usersRouter')
-const productsRouter =require('./routes/productsRouter')
-const indexRouter =require('./routes/index')
+const ownerRouter =require('../routes/ownerRouter')
+const usersRouter =require('../routes/usersRouter')
+const productsRouter =require('../routes/productsRouter')
+const indexRouter =require('../routes/index')
 app.use('/',indexRouter)
 app.use('/owners',ownerRouter)
 app.use('/users',usersRouter)
@@ -60,3 +60,5 @@ app.listen(port,()=>{
     console.log('scatch app is listing at port',port);
     
 })
+
+module.exports = app;
